@@ -1,20 +1,12 @@
 <div ng-include="'partials/navbar'"></div>
 
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-</div>
+<google-map center="map.center" zoom="map.zoom" draggable="true">
+  <marker ng-repeat="bar in bars" coords="{longitude: bar.longitude, latitude: bar.latitude}">
+    <marker-label content="bar.name" anchor="bar.name"> </marker-label>
+  </marker>
+</google-map>
 
-<div class="row marketing">
-  <div ng-repeat="thing in awesomeThings">
-      <h4>{{thing.name}}</h4>
-      <p>{{thing.info}}</p>
-  </div>
-</div>
+
 
 <div class="footer">
   <p>♥ from the Yeoman team</p>

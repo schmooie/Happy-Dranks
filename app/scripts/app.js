@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp', [
+	'google-maps',
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -15,6 +16,6 @@ angular.module('meanHappyHourApp', [
       .otherwise({
         redirectTo: '/'
       });
-      
+
     $locationProvider.html5Mode(true);
   });
