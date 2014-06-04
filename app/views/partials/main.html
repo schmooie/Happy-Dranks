@@ -3,9 +3,13 @@
 <div class="col-md-12">
   <google-map center="map.center" zoom="map.zoom" draggable="true">
 
-    <marker ng-repeat="marker in map.markers" coords="marker.coords" >
-      <window show="showWindow" closeClick="marker.closeClick" ng-cloak></window>
-    </marker>
+    <markers models="bars" idkey="'_id'"coords="'self'" click="'onClicked'">
+      <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
+        <div>
+          <p>FUCK</p>
+        </div>
+      </windows>
+    </markers>
 
  </google-map>
   <button type="submit" class="btn btn-default" ng-click="findNear()">Near Me</button>
