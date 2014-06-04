@@ -1,13 +1,23 @@
 <div ng-include="'partials/navbar'"></div>
 
-<google-map center="map.center" zoom="map.zoom" draggable="true">
-  <marker ng-repeat="bar in bars" coords="{longitude: bar.longitude, latitude: bar.latitude}">
-    <marker-label content="bar.name" anchor="bar.name"> </marker-label>
-  </marker>
-</google-map>
+<div class="col-md-12">
+  <google-map center="map.center" zoom="map.zoom" draggable="true">
+<!--     <markers models="bars" coords="'coords'" idkey="'_id'"></markers>
+ -->
+    <marker ng-repeat="bar in bars" coords="bar.coords" option="markerOptions">
 
+    </marker>
+ </google-map>
+  <button type="submit" class="btn btn-default" ng-click="findNear()">Near Me</button>
+</div>
 
+<div class="col-md-12">
+  <h3>Happy Hours Near You</h3>
+  <div class="col-md-4" ng-repeat="bar in bars">
+  <h4><em>{{bar.name}}</em></h4>
+  </div>
+</div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>I ♥ getting drunk.</p>
 </div>
