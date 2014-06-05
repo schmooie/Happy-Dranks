@@ -55,7 +55,16 @@ body {
   text-align: center;
 }
 
+.side-bar {
+  display: inline-block;
+  width: 48%
+}
+
 .title {
   text-align: center;
   border-bottom: 2px solid black;
+}
+
+find-near-button {
+  display: inline-block;
 }

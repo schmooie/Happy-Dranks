@@ -1,5 +1,9 @@
 <div ng-include="'partials/navbar'"></div>
 
+<!--       <button class="btn btn-danger"ng-click="findNear()">
+        <span class="glyphicon glyphicon-screenshot"></span>
+        NEARBY
+      </button> -->
 <div class="col-md-12">
   <div class="row">
     <div class="col-md-8"> <!-- maps -->
@@ -16,10 +20,10 @@
       </google-map>
     </div> <!-- end of maps -->
     <div class="col-md-4">
-      <button class="btn btn-danger"ng-click="findNear()">
-        <span class="glyphicon glyphicon-screenshot"></span>
-        NEARBY
-      </button>
+
+      <div class="side-bar bar" ng-repeat="bar in bars">
+        {{bar.name}}
+      </div>
 
     </div>
 
