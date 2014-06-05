@@ -14,10 +14,6 @@ body {
   padding: 10px;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
@@ -55,16 +51,36 @@ body {
   text-align: center;
 }
 
-.side-bar {
+.side-bar-half {
+  text-align: center;
   display: inline-block;
-  width: 48%
+  width: 48%;
+  padding: 2%;
+}
+
+.side-bar-thirds {
+  text-align: left;
+  display: inline-block;
+  width: 72%
+}
+
+.side-bar-third {
+  text-align: center;
+  display: inline-block;
+  width: 24%;
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   border-bottom: 2px solid black;
 }
 
 find-near-button {
   display: inline-block;
+}
+
+.frown {
+  padding-top: 10%;
+  font-size: 1.2em;
+  text-align: center;
 }

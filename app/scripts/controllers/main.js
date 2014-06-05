@@ -3,7 +3,9 @@
 angular.module('meanHappyHourApp')
   .controller('MainCtrl', function (mapStyle, $scope, $http) {
 		var location;
-		$scope.bars = [];
+		$scope.barsToShow = [];
+		$scope.allBars = [];
+		$scope.nearbyBars = [];
 
 		var onMarkerClicked = function (marker) {
 			marker.showWindow = true;
@@ -13,13 +15,27 @@ angular.module('meanHappyHourApp')
 		var makeMarkers = function (arr) {
 			  for (var i = arr.length -1; 0 <= i; i--) {
 	      	var bar = arr[i];
+	      	// bar.showWindow = false;
+	      	// bar.windowOptions = {
+      		// 	pixelOffset: new google.maps.Size(0,5),
+      		// 	disableAutoPan: true,
+      		// 	boxClass: 'custom-info-window'
+	      	// };
+	      	// bar.closeClick = function () {
+	      	// 	bar.showWindow = false;
+	      	// 	$scope.$apply();
+	      	// };
+	      	// bar.onClicked = function () {
+	      	// 	onMarkerClicked(bar);
+	      	// };
+
 	      	var marker = {
 	      		coords:{
 	      			latitude: bar.latitude,
 	      			longitude: bar.longitude},
-	      		text: bar.name,
-	      		showWindow: false,
-	      		};
+	      		showWindow: false
+      		};
+
 	      	marker.closeClick = function () {
 	      		marker.showWindow = false;
 	      		$scope.$apply();
@@ -32,7 +48,9 @@ angular.module('meanHappyHourApp')
 	      		disableAutoPan: true,
 	      		boxClass: 'custom-info-window'
 	      	};
-	      	$scope.bars[i].marker = marker;
+	      	bar.id = $scope.barsToShow.length + 1;
+	      	bar.marker = marker;
+	      	$scope.barsToShow.push(bar);
       }
 		};
 
@@ -52,8 +70,9 @@ angular.module('meanHappyHourApp')
 		};
 
     $http.get('/api/bars/search?happyHour=Yes').success(function(bars) {
-    		$scope.bars = bars.slice(0,50);
-    		makeMarkers($scope.bars);
+    		$scope.allBars = bars.slice(0,50);
+    		makeMarkers($scope.allBars);
+    		// $scope.allBars = makeMarkers(allBars);
     });
 
 		$scope.findNear = function () {
@@ -61,9 +80,10 @@ angular.module('meanHappyHourApp')
 			$scope.map.center = location;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
-				$scope.bars = [];
-				$scope.bars = bars.slice(0, 10);
-				makeMarkers($scope.bars);
+				$scope.nearbyBars = [];
+				$scope.nearbyBars = bars.slice(0, 6);
+				makeMarkers($scope.nearbyBars);
+				// $scope.nearbyBars = makeMarkers(nearbyBars);
 			});
 		};
 

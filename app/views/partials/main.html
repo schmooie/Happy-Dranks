@@ -1,15 +1,12 @@
 <div ng-include="'partials/navbar'"></div>
 
-<!--       <button class="btn btn-danger"ng-click="findNear()">
-        <span class="glyphicon glyphicon-screenshot"></span>
-        NEARBY
-      </button> -->
+
 <div class="col-md-12">
   <div class="row">
     <div class="col-md-8"> <!-- maps -->
-      <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options"ng-cloak>
-        <markers models="bars" idkey="'_id'"coords="'self'" click="'onClicked'">
-          <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'" ng-cloak>
+      <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+        <markers models="barsToShow" idkey="'id'"coords="'self'" click="'onClicked'">
+          <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
             <div class="info-window">
               <p ng-non-bindable>
                 <strong>{{name}}</strong></p>
@@ -19,29 +16,54 @@
         </markers>
       </google-map>
     </div> <!-- end of maps -->
+
     <div class="col-md-4">
-
-      <div class="side-bar bar" ng-repeat="bar in bars">
-        {{bar.name}}
+      <div class="side-bar-thirds">
+        <h4>HAPPY HOURS NEAR YOU</h4>
       </div>
-
+      <div class="side-bar-third">
+        <button class="btn btn-danger"ng-click="findNear()">
+          <span class="glyphicon glyphicon-screenshot"></span>
+        NEARBY
+        </button>
+      </div>
+      <div ng-hide="nearbyBars" class="frown">
+        <i class="icon-4x icon-frown"></i><i class="icon-4x icon-frown"></i><i class="icon-4x icon-frown"></i>
+        <p>Maybe you should press the button.</p>
+      </div>
+      <div class="side-bar-half bar" ng-repeat="bar in nearbyBars">
+        <h5>
+          <strong ng-click="bar.marker.onClicked(bar.marker)">{{bar.name}}</strong>
+        </h5>
+        <div class="side-bar-thirds">
+          <p>
+            Price: {{bar.price}}
+          </p>
+          <p>
+            Rating: {{bar.rating}}
+          </p>
+        </div>
+        <div class="side-bar-third">
+          <p>
+            <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
+          </p>
+          <p>
+            <a ng-show="{{bar.url}}"ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
+          </p>
+        </div>
+      </div>
     </div>
-
-
-
-
   </div>
-
-
 </div>
 
 <div class="col-md-12">
-  <h2 class="title">HAPPY HOURS NEAR YOU</h2>
-  <div class="col-md-3 bar" ng-repeat="bar in bars">
+  <h2 class="title">HERE ARE SOME HAPPY HOURS TO START</h2>
+  <div class="col-md-3 bar" ng-repeat="bar in allBars">
     <h5>
-      <strong>{{bar.name}}</strong>
+      <strong ng-click="bar.marker.onClicked(bar.marker)">{{bar.name}}</strong>
       <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
-      <a ng-show="{{bar.url}}"ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
+<!--       <a ng-show="{{bar.url}}" ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a> -->
+      <a ng-href="{{bar.url}}" ng-show="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
     </h5>
     <div class="col-md-6">
       <p>
