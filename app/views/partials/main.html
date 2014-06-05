@@ -1,12 +1,13 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="col-md-12">
-  <google-map center="map.center" zoom="map.zoom" draggable="true">
+  <google-map center="map.center" zoom="map.zoom" draggable="true" ng-cloak>
 
     <markers models="bars" idkey="'_id'"coords="'self'" click="'onClicked'">
-      <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
-        <div>
-          <p>FUCK</p>
+      <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'" ng-cloak>
+        <div class="info-window">
+          <p ng-non-bindable><strong>{{name}}</strong></p>
+          <p ng-non-bindable>Price: {{price}}  |  Rating: {{rating}}</p>
         </div>
       </windows>
     </markers>
@@ -16,9 +17,11 @@
 </div>
 
 <div class="col-md-12">
-  <h3>Happy Hours Near You</h3>
-  <div class="col-md-4" ng-repeat="bar in bars">
-  <h4><em>{{bar.name}}</em></h4>
+  <h2 class="title">HAPPY HOURS NEAR YOU</h2>
+  <div class="col-md-4 bar" ng-repeat="bar in bars">
+    <h4><strong>{{bar.name}}</strong></h4>
+
+
   </div>
 </div>
 

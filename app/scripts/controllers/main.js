@@ -52,11 +52,6 @@ angular.module('meanHappyHourApp')
     		makeMarkers($scope.bars);
     });
 
-
-
-
-
-
 		$scope.findNear = function () {
 			$scope.map.zoom = 15;
 			$scope.map.center = location;

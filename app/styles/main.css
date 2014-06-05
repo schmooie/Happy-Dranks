@@ -35,3 +35,21 @@ body {
   height: 400px;
   width: 100%;
 }
+
+.info-window {
+  text-align: center;
+  background: #D00;
+  color: white;
+}
+
+.bar {
+  text-align: center;
+  border-left: 1px dashed #DDD;
+  border-bottom: 1px dashed #DDD;
+  margin-bottom: 10px;
+}
+
+.title {
+  text-align: center;
+  border-bottom: 2px solid black;
+}
