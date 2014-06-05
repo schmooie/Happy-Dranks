@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MainCtrl', function (mapStyle, $scope, $http) {
 		var location;
 		$scope.bars = [];
 
@@ -18,7 +18,7 @@ angular.module('meanHappyHourApp')
 	      			latitude: bar.latitude,
 	      			longitude: bar.longitude},
 	      		text: bar.name,
-	      		showWindow: false
+	      		showWindow: false,
 	      		};
 	      	marker.closeClick = function () {
 	      		marker.showWindow = false;
@@ -41,10 +41,14 @@ angular.module('meanHappyHourApp')
         latitude: 40.7311227,
         longitude: -73.9498119
 	    },
-	    zoom: 13,
+	    zoom: 12,
 	    refresh: 'true',
 	    markers: [],
-	    control: {}
+	    control: {},
+	    options: {
+	    	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	    	styles: mapStyle.style
+	    }
 		};
 
     $http.get('/api/bars/search?happyHour=Yes').success(function(bars) {
@@ -53,7 +57,7 @@ angular.module('meanHappyHourApp')
     });
 
 		$scope.findNear = function () {
-			$scope.map.zoom = 15;
+			$scope.map.zoom = 14;
 			$scope.map.center = location;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){

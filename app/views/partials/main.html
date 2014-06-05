@@ -1,7 +1,7 @@
 <div ng-include="'partials/navbar'"></div>
 
 <div class="col-md-12">
-  <google-map center="map.center" zoom="map.zoom" draggable="true" ng-cloak>
+  <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options"ng-cloak>
 
     <markers models="bars" idkey="'_id'"coords="'self'" click="'onClicked'">
       <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'" ng-cloak>

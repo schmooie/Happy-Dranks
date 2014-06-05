@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: api', function () {
+describe('Service: mapStyle', function () {
 
   // load the service's module
   beforeEach(module('meanHappyHourApp'));
 
   // instantiate service
-  var api;
-  beforeEach(inject(function (_api_) {
-    api = _api_;
+  var mapStyle;
+  beforeEach(inject(function (_mapStyle_) {
+    mapStyle = _mapStyle_;
   }));
 
   it('should do something', function () {
-    expect(!!api).toBe(true);
+    expect(!!mapStyle).toBe(true);
   });
 
 });
