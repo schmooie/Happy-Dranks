@@ -1,20 +1,18 @@
-/* Space out content a bit */
+/*=========================*/
+/*GENERAL + FOOTER + HEADER*/
+/*=========================*/
 body {
   padding-top: 20px;
   padding-bottom: 20px;
   font-family: 'Open Sans', 'Arial', 'sans-serif';
   font: #000;
-  background-color: #DEDEDF;
+  background-color: #EFEFEF;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding: 10px;
+a {
+  color: #86B8B1;
 }
 
-/* Make the masthead heading the same height as the navigation */
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
@@ -22,13 +20,14 @@ body {
   padding-bottom: 19px;
 }
 
-/* Custom page footer */
 .footer {
   padding-top: 19px;
   border-top: 1px solid #e5e5e5;
   text-align: center;
 }
-
+/*===========*/
+/*GOOGLE MAPS*/
+/*===========*/
 .angular-google-map-container {
   height: 400px;
   width: 100%;
@@ -41,16 +40,12 @@ body {
   padding: 5px;
 }
 
-.bar {
-  border-left: 1px dashed #FA2A00;
-  border-bottom: 1px dashed #FA2A00;
-  margin-bottom: 10px;
+.fa-frown-o {
+  color: #FA2A00;
 }
-
-.bar h5 {
-  text-align: center;
-}
-
+/*==========*/
+/*SIDE PANEL*/
+/*==========*/
 .side-bar-half {
   text-align: center;
   display: inline-block;
@@ -70,17 +65,26 @@ body {
   width: 24%;
 }
 
+.frown {
+  padding-top: 10%;
+  font-size: 1.2em;
+  text-align: center;
+}
+/*==========*/
+/*BARS PANEL*/
+/*==========*/
 .title {
   text-align: left;
   border-bottom: 2px solid black;
 }
 
-find-near-button {
-  display: inline-block;
+.bar {
+  border-left: 1px dashed #FA2A00;
+  border-bottom: 1px dashed #FA2A00;
+  margin-bottom: 10px;
+  font-size: 1.1em;
 }
 
-.frown {
-  padding-top: 10%;
-  font-size: 1.2em;
+.bar h5 {
   text-align: center;
 }
