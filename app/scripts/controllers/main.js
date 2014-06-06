@@ -26,7 +26,7 @@ angular.module('meanHappyHourApp')
       		marker.showWindow = false;
       		$scope.$apply();
       	};
-      	marker.onClicked = function () {
+      	marker.onClicked = function (marker) {
       		onMarkerClicked(marker);
       	};
       	marker.windowOptions = {

@@ -28,7 +28,7 @@
         </button>
       </div>
       <div ng-hide="nearbyBars" class="frown">
-        <i class="icon-4x icon-frown"></i><i class="icon-4x icon-frown"></i><i class="icon-4x icon-frown"></i>
+        <i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i>
         <p>Maybe you should press the button.</p>
       </div>
       <div class="side-bar-half bar" ng-repeat="bar in nearbyBars">
@@ -60,7 +60,7 @@
   <h2 class="title">HERE ARE SOME HAPPY HOURS TO START</h2>
   <div class="col-md-3 bar" ng-repeat="bar in bars">
     <h5>
-      <strong ng-click="bar.marker.onClicked()">{{bar.name}}</strong>
+      <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
       <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
       <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><i class="icon-external-link-sign"></i></a>
     </h5>
