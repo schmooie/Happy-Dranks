@@ -31,9 +31,9 @@
         <i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i>
         <p>Maybe you should press the button.</p>
       </div>
-      <div class="side-bar-half bar" ng-repeat="bar in nearbyBars">
+      <div ng-show="nearbyBars" class="side-bar-half bar" ng-repeat="bar in bars.slice(-6)">
         <h5>
-          <strong>{{bar.name}}</strong>
+          <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
         </h5>
         <div class="side-bar-thirds">
           <p>
@@ -45,10 +45,10 @@
         </div>
         <div class="side-bar-third">
           <p>
-            <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
+            <a ng-href="{{bar.fs_url}}"><i class="fa fa-foursquare"></i></a>
           </p>
           <p>
-            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
+            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><i class="fa fa-link"></i></a>
           </p>
         </div>
       </div>
@@ -61,8 +61,8 @@
   <div class="col-md-3 bar" ng-repeat="bar in bars">
     <h5>
       <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-      <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
-      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><i class="icon-external-link-sign"></i></a>
+      <a ng-href="{{bar.fs_url}}"><i class="fa fa-foursquare"></i></a>
+      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><i class="fa fa-link"></i></a>
     </h5>
     <div class="col-md-6">
       <p>

@@ -35,14 +35,9 @@ angular.module('meanHappyHourApp')
       		boxClass: 'custom-info-window'
       	};
       	bar.marker = marker;
-      	// $scope.bars.push(bar);
       	bars.push(bar);
     	}
-    	// $scope.$apply(function() {
-	      $scope.bars = $scope.bars.concat(bars);
-	      // $scope.$apply();
-    	// })
-
+      $scope.bars = $scope.bars.concat(bars);
     	return bars;
 		};
 
@@ -70,7 +65,8 @@ angular.module('meanHappyHourApp')
 			$scope.map.center = location;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
-				$scope.nearbyBars = makeMarkers(bars.slice(0, 6));
+				makeMarkers(bars.slice(0, 6));
+				$scope.nearbyBars = $scope.bars.slice(-6);
 			});
 		};
 
