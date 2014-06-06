@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-md-8"> <!-- maps -->
       <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options">
-        <markers models="barsToShow" idkey="'id'"coords="'self'" click="'onClicked'">
+        <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" doRebuildAll="'true'">
           <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
             <div class="info-window">
               <p ng-non-bindable>
@@ -33,7 +33,7 @@
       </div>
       <div class="side-bar-half bar" ng-repeat="bar in nearbyBars">
         <h5>
-          <strong ng-click="bar.marker.onClicked(bar.marker)">{{bar.name}}</strong>
+          <strong>{{bar.name}}</strong>
         </h5>
         <div class="side-bar-thirds">
           <p>
@@ -48,7 +48,7 @@
             <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
           </p>
           <p>
-            <a ng-show="{{bar.url}}"ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
+            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
           </p>
         </div>
       </div>
@@ -58,12 +58,11 @@
 
 <div class="col-md-12">
   <h2 class="title">HERE ARE SOME HAPPY HOURS TO START</h2>
-  <div class="col-md-3 bar" ng-repeat="bar in allBars">
+  <div class="col-md-3 bar" ng-repeat="bar in bars">
     <h5>
-      <strong ng-click="bar.marker.onClicked(bar.marker)">{{bar.name}}</strong>
+      <strong ng-click="bar.marker.onClicked()">{{bar.name}}</strong>
       <a ng-href="{{bar.fs_url}}"><i class="icon-foursquare"></i></a>
-<!--       <a ng-show="{{bar.url}}" ng-href="{{bar.url}}"><i class="icon-external-link-sign"></i></a> -->
-      <a ng-href="{{bar.url}}" ng-show="{{bar.url}}"><i class="icon-external-link-sign"></i></a>
+      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><i class="icon-external-link-sign"></i></a>
     </h5>
     <div class="col-md-6">
       <p>
