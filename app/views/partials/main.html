@@ -44,10 +44,10 @@
         </div>
         <div class="side-bar-third">
           <p>
-            <a ng-href="{{bar.fs_url}}"><span class="fa fa-foursquare"></span></a>
+            <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
           </p>
           <p>
-            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><span class="fa fa-link"></span></a>
+            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}" class="fa fa-link"></a>
           </p>
         </div>
       </div>
@@ -60,8 +60,8 @@
   <div class="col-md-3 bar" ng-repeat="bar in bars">
     <h5>
       <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-      <a ng-href="{{bar.fs_url}}"><span class="fa fa-foursquare"></span></a>
-      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><span class="fa fa-link"></span></a>
+      <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
+      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="fa fa-link"></a>
     </h5>
     <div class="col-md-6">
       <p>
