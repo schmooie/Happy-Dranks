@@ -2,27 +2,38 @@
 /*GENERAL + FOOTER + HEADER*/
 /*=========================*/
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
   font-family: 'Open Sans', 'Arial', 'sans-serif';
   font: #000;
   background-color: #EFEFEF;
 }
 
-a {
-  color: #86B8B1;
+.container {
+  width: 80%;
 }
 
-.header h3 {
+fa {
+  color: #5CACC4;
+}
+
+/*.header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+  background-color: #FCB653;
+}
+*/
+
+.header, .footer {
+  background-color: #5CACC4;
+  padding: 1px 10px;
+}
+
+.header {
+  margin-bottom: 5px;
 }
 
 .footer {
-  padding-top: 19px;
-  border-top: 1px solid #e5e5e5;
   text-align: center;
 }
 /*===========*/
@@ -35,13 +46,13 @@ a {
 
 .info-window {
   text-align: center;
-  background: #FA2A00;
-  color: white;
+  background: #5CACC4;
+  color: #FFF;
   padding: 5px;
 }
 
 .fa-frown-o {
-  color: #FA2A00;
+  color: #FF5254;
 }
 /*==========*/
 /*SIDE PANEL*/
@@ -74,13 +85,13 @@ a {
 /*BARS PANEL*/
 /*==========*/
 .title {
-  text-align: left;
-  border-bottom: 2px solid black;
+  text-align: center;
+  border-bottom: 2px solid #FCB653;
 }
 
 .bar {
-  border-left: 1px dashed #FA2A00;
-  border-bottom: 1px dashed #FA2A00;
+  border-left: 1px dashed #FF5254;
+  border-bottom: 1px dashed #FF5254;
   margin-bottom: 10px;
   font-size: 1.1em;
 }

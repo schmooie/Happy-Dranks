@@ -1,4 +1,3 @@
-<div ng-include="'partials/navbar'"></div>
 
 
 <div class="col-md-12">
@@ -19,7 +18,7 @@
 
     <div class="col-md-4">
       <div class="side-bar-thirds">
-        <h4>HAPPY HOURS NEAR YOU</h4>
+        <h4 class="title">HAPPY HOURS NEAR YOU</h4>
       </div>
       <div class="side-bar-third">
         <button class="btn btn-danger"ng-click="findNear()">
@@ -28,7 +27,7 @@
         </button>
       </div>
       <div ng-hide="nearbyBars" class="frown">
-        <i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i><i class="fa fa-frown-o fa-5x" ng-click="findNear()"></i>
+        <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span>
         <p>Maybe you should press the button.</p>
       </div>
       <div ng-show="nearbyBars" class="side-bar-half bar" ng-repeat="bar in bars.slice(-6)">
@@ -45,10 +44,10 @@
         </div>
         <div class="side-bar-third">
           <p>
-            <a ng-href="{{bar.fs_url}}"><i class="fa fa-foursquare"></i></a>
+            <a ng-href="{{bar.fs_url}}"><span class="fa fa-foursquare"></span></a>
           </p>
           <p>
-            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><i class="fa fa-link"></i></a>
+            <a ng-show="{{!!bar.url}}"ng-href="{{bar.url}}"><span class="fa fa-link"></span></a>
           </p>
         </div>
       </div>
@@ -57,12 +56,12 @@
 </div>
 
 <div class="col-md-12">
-  <h2 class="title">HERE ARE SOME HAPPY HOURS TO START</h2>
+  <h2 class="title">SOME HAPPY HOURS TO START</h2>
   <div class="col-md-3 bar" ng-repeat="bar in bars">
     <h5>
       <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-      <a ng-href="{{bar.fs_url}}"><i class="fa fa-foursquare"></i></a>
-      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><i class="fa fa-link"></i></a>
+      <a ng-href="{{bar.fs_url}}"><span class="fa fa-foursquare"></span></a>
+      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}"><span class="fa fa-link"></span></a>
     </h5>
     <div class="col-md-6">
       <p>
@@ -73,8 +72,4 @@
       <p>Rating: {{bar.rating}}</p>
     </div>
   </div>
-</div>
-
-<div class="footer">
-  <p>I ♥ getting drunk.</p>
 </div>
