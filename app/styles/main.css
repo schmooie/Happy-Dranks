@@ -54,6 +54,11 @@ fa {
 .fa-frown-o {
   color: #FF5254;
 }
+
+.fa-frown-o:hover {
+  cursor: pointer;
+  cursor: hand;
+}
 /*==========*/
 /*SIDE PANEL*/
 /*==========*/

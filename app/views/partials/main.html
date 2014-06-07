@@ -17,18 +17,13 @@
     </div> <!-- end of maps -->
 
     <div class="col-md-4">
-      <div class="side-bar-thirds">
+      <div>
         <h4 class="title">HAPPY HOURS NEAR YOU</h4>
       </div>
-      <div class="side-bar-third">
-        <button class="btn btn-danger"ng-click="findNear()">
-          <span class="glyphicon glyphicon-screenshot"></span>
-        NEARBY
-        </button>
-      </div>
+
       <div ng-hide="nearbyBars" class="frown">
-        <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span>
-        <p>Maybe you should press the button.</p>
+        <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span>
+        <p>Let's turn that frown upside down.</p>
       </div>
       <div ng-show="nearbyBars" class="side-bar-half bar" ng-repeat="bar in bars.slice(-numNearby)">
         <h5>

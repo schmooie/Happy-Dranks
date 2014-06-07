@@ -4,6 +4,7 @@ angular.module('meanHappyHourApp')
   .controller('MainCtrl', function (mapStyle, $scope, $http) {
 		var myLocation;
 		$scope.bars = [];
+		$scope.iconClass = 'fa fa-frown-o fa-5x';
 
 		var onMarkerClicked = function (marker) {
 			marker.showWindow = true;
@@ -65,9 +66,12 @@ angular.module('meanHappyHourApp')
 			$scope.map.center = myLocation;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
-				makeMarkers(bars.slice(0, bars.length));
-				$scope.nearbyBars = true;
-				$scope.numNearby = bars.length;
+				$scope.iconClass = "fa fa-smile-o fa-5x";
+				setTimeout(function(){
+					makeMarkers(bars.slice(0, bars.length));
+					$scope.nearbyBars = true;
+					$scope.numNearby = bars.length;
+				}, 300);
 			});
 		};
 
