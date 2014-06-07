@@ -30,7 +30,7 @@
         <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span> <span class="fa fa-frown-o fa-5x" ng-click="findNear()"></span>
         <p>Maybe you should press the button.</p>
       </div>
-      <div ng-show="nearbyBars" class="side-bar-half bar" ng-repeat="bar in bars.slice(-6)">
+      <div ng-show="nearbyBars" class="side-bar-half bar" ng-repeat="bar in bars.slice(-numNearby)">
         <h5>
           <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
         </h5>

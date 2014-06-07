@@ -65,8 +65,9 @@ angular.module('meanHappyHourApp')
 			$scope.map.center = myLocation;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
-				makeMarkers(bars.slice(0, 6));
+				makeMarkers(bars.slice(0, bars.length));
 				$scope.nearbyBars = true;
+				$scope.numNearby = bars.length;
 			});
 		};
 
