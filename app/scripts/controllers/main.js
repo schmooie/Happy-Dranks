@@ -67,10 +67,10 @@ angular.module('meanHappyHourApp')
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
 				$scope.iconClass = "fa fa-smile-o fa-5x";
+				makeMarkers(bars.slice(0, bars.length));
+				$scope.numNearby = bars.length;
 				setTimeout(function(){
-					makeMarkers(bars.slice(0, bars.length));
 					$scope.nearbyBars = true;
-					$scope.numNearby = bars.length;
 				}, 300);
 			});
 		};
