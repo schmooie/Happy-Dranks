@@ -17,6 +17,9 @@ angular.module('meanHappyHourApp', [
       	templateUrl: 'partials/search',
       	controller: 'SearchPageCtrl'
       })
+      .when('/about', {
+      	templateUrl: 'partials/about'
+      })
       .otherwise({
         redirectTo: '/'
       });
