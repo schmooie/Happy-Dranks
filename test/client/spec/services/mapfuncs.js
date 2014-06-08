@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: mapStyle', function () {
+describe('Service: mapFuncs', function () {
 
   // load the service's module
   beforeEach(module('meanHappyHourApp'));
 
   // instantiate service
-  var mapStyle;
-  beforeEach(inject(function (_mapStyle_) {
-    mapStyle = _mapStyle_;
+  var mapFuncs;
+  beforeEach(inject(function (_mapFuncs_) {
+    mapFuncs = _mapFuncs_;
   }));
 
   it('should do something', function () {
-    expect(!!mapStyle).toBe(true);
+    expect(!!mapFuncs).toBe(true);
   });
 
 });

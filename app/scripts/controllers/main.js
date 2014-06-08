@@ -1,47 +1,10 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .controller('MainCtrl', function (mapStyle, $scope, $http) {
+  .controller('MainCtrl', function (mapFuncs, $scope, $http) {
 		var myLocation;
 		$scope.bars = [];
 		$scope.iconClass = 'fa fa-frown-o fa-5x';
-
-		var onMarkerClicked = function (marker) {
-			marker.showWindow = true;
-			$scope.$apply();
-		};
-
-		var makeMarkers = function (arr) {
-			var bars = [];
-		  for (var i = 0; i < arr.length; i++) {
-      	var bar = arr[i];
-
-      	var marker = {
-      		coords:{
-      			latitude: bar.latitude,
-      			longitude: bar.longitude},
-      		showWindow: false
-    		};
-
-      	marker.closeClick = function () {
-      		marker.showWindow = false;
-      		$scope.$apply();
-      	};
-      	marker.onClicked = function (marker) {
-      		onMarkerClicked(marker);
-      	};
-      	marker.windowOptions = {
-      		pixelOffset: new google.maps.Size(0,5),
-      		disableAutoPan: true,
-      		boxClass: 'custom-info-window'
-      	};
-      	bar.marker = marker;
-      	bars.push(bar);
-    	}
-      $scope.bars = $scope.bars.concat(bars);
-    	return bars;
-		};
-
     $scope.map = {
 	    center: {
         latitude: 40.7311227,
@@ -53,12 +16,12 @@ angular.module('meanHappyHourApp')
 	    control: {},
 	    options: {
 	    	mapTypeId: google.maps.MapTypeId.ROADMAP,
-	    	styles: mapStyle.style
+	    	styles: mapFuncs.style
 	    }
 		};
 
     $http.get('/api/bars/search?happyHour=Yes').success(function(bars) {
-    		makeMarkers(bars.slice(0, 24));
+    		$scope.bars = mapFuncs.makeMarkers(bars.slice(0, 24));
     });
 
 		$scope.findNear = function () {
@@ -68,7 +31,7 @@ angular.module('meanHappyHourApp')
 			.success(function(bars){
 				$scope.iconClass = 'fa fa-smile-o fa-5x';
 				$scope.numNearby = bars.length < 6 ? bars.length : 6;
-				makeMarkers(bars.slice(0, $scope.numNearby));
+				$scope.bars = $scope.bars.concat(mapFuncs.makeMarkers(bars.slice(0, $scope.numNearby)));
 				setTimeout(function(){
 					$scope.nearbyBars = true;
 				}, 300);
