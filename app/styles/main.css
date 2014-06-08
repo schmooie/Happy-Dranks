@@ -3,30 +3,42 @@
 /*=========================*/
 body {
   font-family: 'Open Sans', 'Arial', 'sans-serif';
-  font: #000;
+  color: #000;
   background-color: #EFEFEF;
 }
 
 .container {
-  width: 80%;
+  width: 85%;
 }
 
 fa {
   color: #5CACC4;
 }
 
-/*.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-  background-color: #FCB653;
-}
-*/
-
 .header, .footer {
   background-color: #5CACC4;
   padding: 1px 10px;
+  color: #000;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #000;
+}
+
+.nav > li > a {
+  padding: 15px 15px;
+}
+
+.logo {
+  font-size: 20px;
+  height: 50px;
+  padding: 15px 15px;
+  line-height: 20px;
+}
+
+.navbar-default .navbar-toggle {
+  background: #FCB653;
+  border-color: #5CACC4;
 }
 
 .header {
@@ -98,9 +110,26 @@ fa {
   border-left: 1px dashed #FF5254;
   border-bottom: 1px dashed #FF5254;
   margin-bottom: 10px;
-  font-size: 1.1em;
+  font-size: 0.9em;
 }
 
 .bar h5 {
   text-align: center;
+}
+
+.bar-info {
+  padding-right: 0;
+}
+
+/*===========*/
+/*MEDIA QUERY*/
+/*===========*/
+@media screen and (min-width: 280px) and (max-width: 600px) {
+  .angular-google-map-container {
+    height: 240px;
+    width: 100%;
+  }
+  .title {
+    font-size: 1.5em;
+  }
 }

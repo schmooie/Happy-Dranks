@@ -58,7 +58,7 @@ angular.module('meanHappyHourApp')
 		};
 
     $http.get('/api/bars/search?happyHour=Yes').success(function(bars) {
-    		makeMarkers(bars.slice(10, 58));
+    		makeMarkers(bars.slice(0, 24));
     });
 
 		$scope.findNear = function () {
@@ -66,9 +66,9 @@ angular.module('meanHappyHourApp')
 			$scope.map.center = myLocation;
 			$http.get('/api/bars/nearest?' + 'longitude=' + $scope.map.center.longitude + '&latitude=' + $scope.map.center.latitude)
 			.success(function(bars){
-				$scope.iconClass = "fa fa-smile-o fa-5x";
-				makeMarkers(bars.slice(0, bars.length));
-				$scope.numNearby = bars.length;
+				$scope.iconClass = 'fa fa-smile-o fa-5x';
+				$scope.numNearby = bars.length < 6 ? bars.length : 6;
+				makeMarkers(bars.slice(0, $scope.numNearby));
 				setTimeout(function(){
 					$scope.nearbyBars = true;
 				}, 300);
