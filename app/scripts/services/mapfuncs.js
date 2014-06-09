@@ -118,8 +118,10 @@ angular.module('meanHappyHourApp')
 		    	};
 		    	marker.onClicked = function (marker) {
 		    		onMarkerClicked(marker);
+		    		var old = $location.hash();
 		    		$location.hash('gMap');
 		    		$anchorScroll();
+		    		$location.hash(old);
 		    	};
 		    	marker.windowOptions = {
 		    		pixelOffset: new google.maps.Size(0,5),
