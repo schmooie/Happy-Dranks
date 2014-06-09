@@ -34,6 +34,7 @@ fa {
   height: 50px;
   padding: 15px 15px;
   line-height: 20px;
+  color: #000;
 }
 
 .navbar-default .navbar-toggle {
@@ -118,6 +119,7 @@ fa {
   border-bottom: 1px dashed #FF5254;
   margin-bottom: 10px;
   font-size: 0.9em;
+  min-height: 100px;
 }
 
 .bar h5 {
@@ -160,9 +162,6 @@ fa {
   .no-bars-found {
     padding-top: 0;
     padding-bottom: 0;
-  }
-  .bar {
-    min-height: 120px;
   }
 }
 
