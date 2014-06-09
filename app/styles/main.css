@@ -190,8 +190,14 @@ fa {
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 400px) {
   .bar {
     min-height: 150px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .bar {
+    min-height: 160px;
   }
 }
