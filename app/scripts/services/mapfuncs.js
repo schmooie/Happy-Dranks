@@ -100,7 +100,7 @@ angular.module('meanHappyHourApp')
 		    }
 			],
 
-			makeMarkers: function (arr) {
+			makeMarkers: function (arr, iconUrl) {
 				var bars = [];
 			  for (var i = 0; i < arr.length; i++) {
 		    	var bar = arr[i];
@@ -129,9 +129,9 @@ angular.module('meanHappyHourApp')
 		    		boxClass: 'custom-info-window'
 		    	};
 		    	bar.marker = marker;
+		    	bar.icon = './images/gMap-icons/bar.png';
 		    	bars.push(bar);
 		  	}
-		    // $scope.bars = $scope.bars.concat(bars);
 		  	return bars;
 			}
     };
