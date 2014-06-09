@@ -155,6 +155,10 @@ fa {
   margin: 10px;
 }
 
+select {
+  height: 30px;
+}
+
 /*===========*/
 /*MEDIA QUERY*/
 /*===========*/

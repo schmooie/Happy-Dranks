@@ -25,15 +25,31 @@ angular.module('meanHappyHourApp')
 		$scope.notSearched = true;
 		$scope.couldntFind = false;
 
+		// bar doc keys
+		$scope.boroughs = [{name: 'Queens'}, {name: 'Brooklyn'}, {name: 'Bronx'}, {name: 'Staten Island'}, {name: 'Manhattan'}];
+		$scope.borough = $scope.boroughs[4];
+		$scope.prices = [{price:'$'},{price:'$$'},{price:'$$$'}];
+		$scope.price = $scope.prices[0];
+
     $scope.search = function () {
     	$scope.notSearched = false;
     	$scope.bars = [];
+
+    	// Set Query Params
     	var query = {
     		happyHour: 'Yes',
-    		name: $scope.name,
-    		borough: 'Queens',
-    		price: '$$$'
+    		borough: $scope.borough.name,
+    		price: $scope.price.price
     	};
+    	if (!!$scope.name){
+    		query.name = '~' + $scope.name;
+    	}
+    	if (!!$scope.rating){
+    		query.rating = '>=' + $scope.rating;
+    	} else {
+    		query.rating = '>= 9';
+    	}
+
     	$http.get('/api/v1/Bars?query=' + JSON.stringify(query))
     	.success(function(bars){
     		if (bars.length > 0) {
@@ -46,6 +62,7 @@ angular.module('meanHappyHourApp')
   		})
   		.error(function(err){
   			console.log(err);
+  			console.log('NO GOOD!!!')
   		});
     };
   });
