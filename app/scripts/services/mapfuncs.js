@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .factory('mapFuncs', function () {
+  .factory('mapFuncs', function ($anchorScroll, $location) {
   	var onMarkerClicked = function (marker) {
 			marker.showWindow = true;
 		};
@@ -118,6 +118,8 @@ angular.module('meanHappyHourApp')
 		    	};
 		    	marker.onClicked = function (marker) {
 		    		onMarkerClicked(marker);
+		    		$location.hash('gMap');
+		    		$anchorScroll();
 		    	};
 		    	marker.windowOptions = {
 		    		pixelOffset: new google.maps.Size(0,5),

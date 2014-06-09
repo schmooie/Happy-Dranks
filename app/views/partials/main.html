@@ -1,7 +1,7 @@
 <div class="col-md-12">
   <div class="row">
     <div class="col-md-7"> <!-- maps -->
-      <google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-cloak>
+      <google-map id="gMap" center="map.center" zoom="map.zoom" draggable="true" options="map.options" ng-cloak>
         <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" doRebuildAll="'true'">
           <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
             <div class="info-window">

@@ -197,7 +197,10 @@ fa {
 }
 
 @media screen and (max-width: 350px) {
+  body p, h5 {
+    font-size: 88%;
+  }
   .bar {
-    min-height: 160px;
+    min-height: 162px;
   }
 }
