@@ -170,6 +170,12 @@ fa {
     padding-top: 0;
     padding-bottom: 0;
   }
+}
+
+@media screen and (max-width: 600px) {
+  body p, h5 {
+    font-size: 95%;
+  }
   .bar {
     min-height: 130px;
   }
@@ -178,5 +184,14 @@ fa {
 @media screen and (max-width: 500px) {
   body p, h5 {
     font-size: 90%;
+  }
+  .bar {
+    min-height: 140px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .bar {
+    min-height: 150px;
   }
 }
