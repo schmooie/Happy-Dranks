@@ -123,7 +123,7 @@ fa {
   border-bottom: 1px dashed #FF5254;
   margin-bottom: 10px;
   font-size: 0.9em;
-  min-height: 100px;
+  min-height: 140px;
 }
 
 .bar h5 {
@@ -143,6 +143,9 @@ fa {
   cursor: hand;
 }
 
+.bar-links {
+  text-align: center;
+}
 /*===========*/
 /*SEARCH PAGE*/
 /*===========*/
@@ -167,10 +170,13 @@ fa {
     padding-top: 0;
     padding-bottom: 0;
   }
+  .bar {
+    min-height: 130px;
+  }
 }
 
-@media screen and (max-width: 560px) {
-  body p, h5{
+@media screen and (max-width: 500px) {
+  body p, h5 {
     font-size: 90%;
   }
 }

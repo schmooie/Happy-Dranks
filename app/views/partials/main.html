@@ -53,9 +53,11 @@
   <div class="bar col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
     <h5 class="bar-name">
       <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
+    </h5>
+    <p class="bar-links">
       <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
       <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>
-    </h5>
+    </p>
     <div class="col-md-6 bar-info">
       <p>
         Price: {{bar.price}}
