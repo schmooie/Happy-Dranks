@@ -23,18 +23,29 @@ angular.module('meanHappyHourApp')
 		// error messages
 		$scope.foundBars = false;
 		$scope.notSearched = true;
-		$scope.notFound = false;
-
-
+		$scope.couldntFind = false;
 
     $scope.search = function () {
-    	$http.get('/api/bars/search?')
+    	$scope.notSearched = false;
+    	$scope.bars = [];
+    	var query = {
+    		happyHour: 'Yes',
+    		name: $scope.name,
+    		borough: 'Queens',
+    		price: '$$$'
+    	};
+    	$http.get('/api/v1/Bars?query=' + JSON.stringify(query))
     	.success(function(bars){
+    		if (bars.length > 0) {
     			$scope.bars = mapFuncs.makeMarkers(bars);
     			$scope.foundBars = true;
+    		} else {
+    			$scope.foundBars = false;
+    			$scope.couldntFind = true;
+    		}
   		})
-  		.error(function(){
-  			$scope.notFound = true;
+  		.error(function(err){
+  			console.log(err);
   		});
     };
   });

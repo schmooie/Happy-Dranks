@@ -37,6 +37,10 @@ fa {
   color: #000;
 }
 
+.logo:hover {
+  color: #FCB653;
+}
+
 .navbar-default .navbar-toggle {
   background: #FCB653;
   border-color: #5CACC4;
@@ -69,7 +73,7 @@ fa {
   color: #FF5254;
 }
 
-.fa-frown-o:hover {
+.frown:hover {
   cursor: pointer;
   cursor: hand;
 }
