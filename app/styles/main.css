@@ -161,6 +161,9 @@ fa {
     padding-top: 0;
     padding-bottom: 0;
   }
+  .bar {
+    min-height: 120px;
+  }
 }
 
 @media screen and (max-width: 560px) {
