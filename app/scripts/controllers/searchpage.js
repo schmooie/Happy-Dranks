@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .controller('SearchPageCtrl', function (mapFuncs, $scope, $http, $rootScope) {
+  .controller('SearchPageCtrl', function (mapFuncs, $scope, $http) {
 		$scope.bars = [];
 		$scope.iconClass = 'fa fa-frown-o fa-3x';
 
