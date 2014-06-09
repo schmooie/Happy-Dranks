@@ -48,6 +48,7 @@ fa {
 .footer {
   text-align: center;
 }
+
 /*===========*/
 /*GOOGLE MAPS*/
 /*===========*/
@@ -71,6 +72,7 @@ fa {
   cursor: pointer;
   cursor: hand;
 }
+
 /*==========*/
 /*SIDE PANEL*/
 /*==========*/
@@ -98,12 +100,17 @@ fa {
   font-size: 1.2em;
   text-align: center;
 }
+
 /*==========*/
 /*BARS PANEL*/
 /*==========*/
 .title {
   text-align: center;
   border-bottom: 2px solid #FCB653;
+}
+
+.icon {
+  padding-left: 5px;
 }
 
 .bar {
@@ -121,6 +128,24 @@ fa {
   padding-right: 0;
 }
 
+.bar-name {
+  padding: 5px;
+}
+
+.bar-name:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+/*===========*/
+/*SEARCH PAGE*/
+/*===========*/
+.no-bars-found {
+  text-align: center;
+  padding: 80px 0;
+  margin: 10px;
+}
+
 /*===========*/
 /*MEDIA QUERY*/
 /*===========*/
@@ -131,5 +156,15 @@ fa {
   }
   .title {
     font-size: 1.5em;
+  }
+  .no-bars-found {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 560px) {
+  body p, h5{
+    font-size: 90%;
   }
 }
