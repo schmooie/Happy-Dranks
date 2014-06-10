@@ -11,8 +11,8 @@ body {
   width: 100%;
 }
 
-fa {
-  color: #5CACC4;
+a:hover {
+  text-decoration: none;
 }
 
 .header, .footer {
@@ -79,25 +79,6 @@ fa {
 /*==========*/
 /*SIDE PANEL*/
 /*==========*/
-.side-bar-half {
-  text-align: center;
-  display: inline-block;
-  width: 48%;
-  padding: 2%;
-}
-
-.side-bar-thirds {
-  text-align: left;
-  display: inline-block;
-  width: 72%
-}
-
-.side-bar-third {
-  text-align: center;
-  display: inline-block;
-  width: 24%;
-}
-
 .frown {
   font-size: 1.2em;
   text-align: center;
@@ -139,15 +120,18 @@ fa {
   padding-right: 0;
 }
 
+.row {
+  margin: 0 0 5px 5px;
+}
+
 .bar-name {
-  padding: 7px 0;
-  margin-bottom: px;
+  padding: 7px;
   text-align: center;
   background-color: rgba(16, 104, 154, .8);
   border-bottom: 2px solid #e74c3c;
   color: #ecf0f1;
   border-radius: 3px;
-  width: 65%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -308,7 +292,7 @@ fa {
 
 @media screen and (max-width: 1100px) {
   .bar {
-    min-height: 140px;
+
   }
 }
 
@@ -327,7 +311,7 @@ fa {
     font-size: 95%;
   }
   .bar {
-    min-height: 130px;
+
   }
 }
 
@@ -336,7 +320,7 @@ fa {
     font-size: 90%;
   }
   .bar {
-    min-height: 140px;
+
   }
   .search-again {
     font-size: 60%;
@@ -345,7 +329,7 @@ fa {
 
 @media screen and (max-width: 400px) {
   .bar {
-    min-height: 150px;
+
   }
 }
 
@@ -354,7 +338,7 @@ fa {
     font-size: 88%;
   }
   .bar {
-    min-height: 162px;
+
   }
 }
 

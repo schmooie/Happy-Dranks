@@ -24,6 +24,7 @@ angular.module('meanHappyHourApp')
 
 		$scope.findNear = function () {
 			$scope.map.center = $rootScope.myLocation;
+			$scope.iconClass = 'fa fa-frown-o fa-5x fa-spin';
 			var query={
 				happyHour: 'Yes',
 				coords: {
@@ -34,13 +35,15 @@ angular.module('meanHappyHourApp')
 			$scope.map.zoom = 14;
 			$http.get('/api/v1/Bars?query=' + JSON.stringify(query))
 			.success(function(bars){
-				$scope.iconClass = 'fa fa-smile-o fa-5x';
 				$scope.numNearby = bars.length < 6 ? bars.length : 6;
 				$scope.bars = $scope.bars.concat(mapFuncs.makeMarkers(bars.slice(0, $scope.numNearby)));
 				setTimeout(function(){
-					$scope.nearbyBars = true;
-					$scope.$apply();
-				}, 450);
+					$scope.iconClass = 'fa fa-smile-o fa-5x';
+					setTimeout(function(){
+						$scope.nearbyBars = true;
+						$scope.$apply();
+					}, 800);
+				}, 400);
 			});
 		};
 

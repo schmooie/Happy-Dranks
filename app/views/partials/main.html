@@ -24,23 +24,27 @@
         <p>Click on one of us to get happy hours near you.</p>
       </div>
       <div ng-show="nearbyBars" class="bar col-md-4 col-sm-6" ng-repeat="bar in bars.slice(-numNearby)">
-        <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
-          <strong>{{bar.name}}</strong>
+        <div class="row">
+          <div class="bar-name col-xs-9" ng-click="bar.marker.onClicked(bar)">
+            <strong>{{bar.name}}</strong>
+          </div>
+          <div class="col-xs-3">
+            <p>
+              <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare fa-2x"></a>
+            </p>
+            <p>
+              <a ng-show="{{!!bar.url}}" ng-href="{{bar.url}}" class="fa fa-link fa-2x"></a>
+            </p>
+          </div>
         </div>
-        <div class="side-bar-thirds">
+        <div class="col-xs-6">
           <p>
             Price: {{bar.price}}
           </p>
+        </div>
+        <div class="col-xs-6">
           <p>
             Rating: {{bar.rating}}
-          </p>
-        </div>
-        <div class="side-bar-third">
-          <p>
-            <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
-          </p>
-          <p>
-            <a ng-show="{{!!bar.url}}" ng-href="{{bar.url}}" class="fa fa-link"></a>
           </p>
         </div>
       </div>
@@ -51,21 +55,24 @@
 <div class="col-md-12">
   <h2 class="title-h"><span class="title">SOME HAPPY HOURS TO START</span></h2>
   <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
-    <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
-      <strong>{{bar.name}}</strong>
-    </div>
-    <p class="bar-links">
-      <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
-      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>
-    </p>
-    <div class="col-md-6 bar-info">
-      <p>
-        Price: {{bar.price}}
-      </p>
-
-    </div>
-    <div class="col-md-6 bar-info">
-      <p>Rating: {{bar.rating}}</p>
+    <div ng-click="bar.marker.onClicked(bar)">
+      <div class="bar-name">
+        <strong>{{bar.name}}</strong>
+      </div>
+      <div>
+        <p class="bar-links">
+          <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
+          <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>
+        </p>
+      </div>
+      <div class="col-xs-6 bar-info">
+        <p>
+          Price: {{bar.price}}
+        </p>
+      </div>
+      <div class="col-xs-6 bar-info">
+        <p>Rating: {{bar.rating}}</p>
+      </div>
     </div>
   </div>
 </div>
