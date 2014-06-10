@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .controller('SearchPageCtrl', function (mapFuncs, $scope, $http) {
+  .controller('SearchPageCtrl', function (mapFuncs, $scope, $http, $rootScope) {
 		$scope.bars = [];
 		$scope.iconClass = 'fa fa-frown-o fa-3x';
 
@@ -27,30 +27,35 @@ angular.module('meanHappyHourApp')
 
 		// bar doc keys
 		$scope.boroughs = [{name: 'Queens'}, {name: 'Brooklyn'}, {name: 'Bronx'}, {name: 'Staten Island'}, {name: 'Manhattan'}];
-		$scope.borough = $scope.boroughs[4];
 		$scope.prices = [{price:'$'},{price:'$$'},{price:'$$$'}];
-		$scope.price = $scope.prices[0];
+		$scope.sortBys = [{sort: 'Name'}, {sort: 'Rating'}, {sort: 'Price'}];
 
     $scope.search = function () {
     	$scope.notSearched = false;
     	$scope.bars = [];
+    	var sortBy = '';
 
     	// Set Query Params
     	var query = {
-    		happyHour: 'Yes',
-    		borough: $scope.borough.name,
-    		price: $scope.price.price
+    		happyHour: 'Yes'
     	};
     	if (!!$scope.name){
     		query.name = '~' + $scope.name;
     	}
     	if (!!$scope.rating){
     		query.rating = '>=' + $scope.rating;
-    	} else {
-    		query.rating = '>= 9';
+    	}
+    	if (!!$scope.borough){
+    		query.borough = $scope.borough.name;
+    	}
+    	if (!!$scope.price){
+    		query.price = $scope.price.price;
+    	}
+    	if (!!$scope.sortBy) {
+  			sortBy = 'sort=' + $scope.sortBy.sort.toLowerCase() + '&';
     	}
 
-    	$http.get('/api/v1/Bars?query=' + JSON.stringify(query))
+    	$http.get('/api/v1/Bars?' + sortBy + 'query=' + JSON.stringify(query))
     	.success(function(bars){
     		if (bars.length > 0) {
     			$scope.bars = mapFuncs.makeMarkers(bars);
@@ -62,7 +67,6 @@ angular.module('meanHappyHourApp')
   		})
   		.error(function(err){
   			console.log(err);
-  			console.log('NO GOOD!!!')
   		});
     };
   });

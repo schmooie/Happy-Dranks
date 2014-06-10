@@ -21,6 +21,7 @@
         Borough: <select ng-model="borough" ng-options="boroughs.name for boroughs in boroughs"></select><br>
         Minimum Rating: <input type="number" ng-model="rating" min="1" max="9" placeholder="8"><br>
         Price: <select ng-model="price" ng-options="prices.price for prices in prices"></select><br>
+        Sort By: <select ng-model="sortBy" ng-options="sortBys.sort for sortBys in sortBys"></select><br>
         <button type="submit" class="btn btn-danger">Submit</button>
       </form>
     </div>

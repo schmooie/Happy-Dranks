@@ -121,7 +121,7 @@ angular.module('meanHappyHourApp')
 		    		var old = $location.hash();
 		    		$location.hash('gMap');
 		    		$anchorScroll();
-		    		$location.hash(old);
+		    		$location.hash(old)
 		    	};
 		    	marker.windowOptions = {
 		    		pixelOffset: new google.maps.Size(0,5),
