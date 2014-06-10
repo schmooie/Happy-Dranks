@@ -20,8 +20,7 @@ angular.module('meanHappyHourApp')
 		};
 
     $http.get('/api/v1/Bars?happyHour=Yes&limit=24').success(function(bars) {
-    		$scope.bars = mapFuncs.makeMarkers(bars);
-    });
+    		$scope.bars = mapFuncs.makeMarkers(bars); });
 
 		$scope.findNear = function () {
 			$scope.map.center = $rootScope.myLocation;
