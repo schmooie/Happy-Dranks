@@ -16,17 +16,17 @@
 
     <div class="col-md-5">
       <div>
-        <h3 class="title">HAPPY HOURS NEAR YOU</h3>
+        <h3 class="title-h"><span class="title">HAPPY HOURS NEAR YOU</span></h3>
       </div>
       <div ng-hide="nearbyBars" class="frown">
         <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span>
         <p>Let's turn that frown upside down.</p>
         <p>Click on one of us to get happy hours near you.</p>
       </div>
-      <div ng-show="nearbyBars" class="bar col-md-6 col-sm-6" ng-repeat="bar in bars.slice(-numNearby)">
-        <h5 class="bar-name">
-          <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-        </h5>
+      <div ng-show="nearbyBars" class="bar col-md-4 col-sm-6" ng-repeat="bar in bars.slice(-numNearby)">
+        <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
+          <strong>{{bar.name}}</strong>
+        </div>
         <div class="side-bar-thirds">
           <p>
             Price: {{bar.price}}
@@ -49,11 +49,11 @@
 </div>
 
 <div class="col-md-12">
-  <h2 class="title">SOME HAPPY HOURS TO START</h2>
-  <div class="bar col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
-    <h5 class="bar-name">
-      <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-    </h5>
+  <h2 class="title-h"><span class="title">SOME HAPPY HOURS TO START</span></h2>
+  <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
+    <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
+      <strong>{{bar.name}}</strong>
+    </div>
     <p class="bar-links">
       <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
       <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>

@@ -1,77 +1,78 @@
-<div class="col-md-12">
-  <div class="row">
-    <div class="col-md-7"> <!-- maps -->
-      <google-map id="gMap"center="map.center" zoom="map.zoom" draggable="true" options="map.options">
-        <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" icon="'icon'"doRebuildAll="'true'">
-          <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
-            <div class="info-window">
-              <p ng-non-bindable>
-                <strong>{{name}}</strong></p>
-              <p ng-non-bindable>Price: {{price}}  |  Rating: {{rating}}</p>
-            </div>
-          </windows>
-        </markers>
-      </google-map>
-    </div> <!-- end of maps -->
+<div class="row">
+  <div class="col-md-7"> <!-- maps -->
+    <google-map id="gMap"center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+      <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" icon="'icon'"doRebuildAll="'true'">
+        <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
+          <div class="info-window">
+            <p ng-non-bindable>
+              <strong>{{name}}</strong></p>
+            <p ng-non-bindable>Price: {{price}}  |  Rating: {{rating}}</p>
+          </div>
+        </windows>
+      </markers>
+    </google-map>
+  </div> <!-- end of maps -->
 
-    <div class="col-md-5 search-again" ng-hide="showSearch">
-      <span class="fa fa-search fa-3x" ng-click="searchAgain()"> SEARCH AGAIN?</span>
-    </div>
+  <div class="col-md-5 search-again" ng-hide="showSearch">
+    <span class="fa fa-search fa-3x" ng-click="searchAgain()"> SEARCH AGAIN?</span>
+  </div>
 
-    <div class="col-md-5" ng-show="showSearch">
-      <h3 class="title">SEARCH FOR HAPPY HOURS</h3>
-      <form class="cbp-mc-form" ng-submit="search()">
-        <div class="cbp-mc-column">
-          <label for="name">Name</label>
-          <input type="text" ng-model="name">
+  <div class="col-md-5" ng-show="showSearch">
+    <h3 class="title-h"><span class="title">SEARCH FOR HAPPY HOURS</span></h3>
+    <form class="cbp-mc-form" ng-submit="search()">
+      <div class="cbp-mc-column">
+        <label for="name">Name</label>
+        <input type="text" ng-model="name">
 
-          <label for="borough">Borough</label>
-          <select ng-model="borough" ng-options="boroughs.name for boroughs in boroughs"></select>
-        </div>
-
-        <div class="cbp-mc-column">
-          <label for="minimum_rating">Rating</label>
-          <input type="number" ng-model="rating" min="1" max="9">
-
-          <label for="price">Price</label>
-          <select ng-model="price" ng-options="prices.price for prices in prices"></select>
-        </div>
-
-        <div class="cbp-mc-column">
-          <label for="sortBy">Sort By</label>
-          <select ng-model="sortBy" ng-options="sortBys.sort for sortBys in sortBys"></select>
-          <label for="sortOrder">Order</label>
-          <select ng-model="sortOrder" ng-options="sortOrders.sort for sortOrders in sortOrders"></select>
-        </div>
-
-        <div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" value="Search" /></div>
-      </form>
-    </div>
-
-  <div class="col-xs-12" ng-show="foundBars">
-    <h2 class="title">YOUR HAPPY HOURS</h2>
-    <div class="bar col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
-      <h5 class="bar-name">
-        <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-      </h5>
-      <p class="bar-links">
-        <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
-        <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="fa fa-link"></a>
-      </p>
-      <div class="col-md-6 bar-info">
-        <p>
-          Price: {{bar.price}}
-        </p>
-
+        <label for="borough">Borough</label>
+        <select ng-model="borough" ng-options="boroughs.name for boroughs in boroughs"></select>
       </div>
-      <div class="col-md-6 bar-info">
-        <p>Rating: {{bar.rating}}</p>
+
+      <div class="cbp-mc-column">
+        <label for="minimum_rating">Rating</label>
+        <input type="number" ng-model="rating" min="1" max="9">
+
+        <label for="price">Price</label>
+        <select ng-model="price" ng-options="prices.price for prices in prices"></select>
       </div>
+
+      <div class="cbp-mc-column">
+        <label for="sortBy">Sort By</label>
+        <select ng-model="sortBy" ng-options="sortBys.sort for sortBys in sortBys"></select>
+        <label for="sortOrder">Order</label>
+        <select ng-model="sortOrder" ng-options="sortOrders.sort for sortOrders in sortOrders"></select>
+      </div>
+
+      <div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" value="Search" /></div>
+    </form>
   </div>
 </div>
+
+<div class="col-xs-12" ng-show="foundBars">
+  <h2 class="title-h"><span class="title">YOUR HAPPY HOURS</span></h2>
+  <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
+    <h5 class="bar-name">
+      <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
+    </h5>
+    <p class="bar-links">
+      <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
+      <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="fa fa-link"></a>
+    </p>
+    <div class="col-md-6 bar-info">
+      <p>
+        Price: {{bar.price}}
+      </p>
+
+    </div>
+    <div class="col-md-6 bar-info">
+      <p>Rating: {{bar.rating}}</p>
+    </div>
+  </div>
+</div>
+
 <div class="col-xs-12 no-bars-found" ng-hide="foundBars">
-  <span ng-class="iconClass">
-    <span ng-show="notSearched"> Maybe you should try searching for some bars.</span>
+  <span class="fa fa-frown-o">
+    <span ng-show="notSearched"> Maybe you should try searching for some bars...</span>
     <span ng-show="couldntFind"> Sorry, we couldn't find what you were looking for.</span>
   </span>
 </div>

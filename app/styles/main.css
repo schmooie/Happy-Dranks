@@ -2,13 +2,13 @@
 /*GENERAL + FOOTER + HEADER*/
 /*=========================*/
 body {
-  font-family: 'Open Sans', 'Arial', 'sans-serif';
+  font-family: 'Lato', 'sans-serif';
   color: #000;
-  background-color: #EFEFEF;
+  background-color: #FCFDE9;
 }
 
 .container {
-  width: 85%;
+  width: 100%;
 }
 
 fa {
@@ -16,13 +16,21 @@ fa {
 }
 
 .header, .footer {
-  background-color: #5CACC4;
+  background-color: #e74c3c;
   padding: 1px 10px;
-  color: #000;
+  color: #ecf0f1;
+}
+
+.header {
+  border-bottom: 4px solid rgba(16, 104, 154, .8);
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #000;
+  color: #ecf0f1;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
 }
 
 .nav > li > a {
@@ -34,11 +42,11 @@ fa {
   height: 50px;
   padding: 15px 15px;
   line-height: 20px;
-  color: #000;
+  color: #ecf0f1;
 }
 
 .logo:hover {
-  color: #FCB653;
+  color: #FFF;
 }
 
 .navbar-default .navbar-toggle {
@@ -63,18 +71,10 @@ fa {
 
 .info-window {
   text-align: center;
-  background: #5CACC4;
+  background: #e74c3c;
   color: #FFF;
   padding: 5px;
-}
-
-.fa-frown-o {
-  color: #FF5254;
-}
-
-.frown:hover {
-  cursor: pointer;
-  cursor: hand;
+  border: 5px dotted #FFF;
 }
 /*==========*/
 /*SIDE PANEL*/
@@ -99,16 +99,29 @@ fa {
 }
 
 .frown {
-  padding-top: 10%;
   font-size: 1.2em;
   text-align: center;
+}
+
+.frown:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.frown > .fa-smile-o {
+  color: #e74c3c;
 }
 /*==========*/
 /*BARS PANEL*/
 /*==========*/
-.title {
+.title-h, .title-n {
   text-align: center;
-  border-bottom: 2px solid #FCB653;
+  margin-bottom: 20px;
+  color: #e74c3c;
+}
+.title {
+  padding: 5px;
+  border: solid 2px #e74c3c;
 }
 
 .icon {
@@ -116,14 +129,10 @@ fa {
 }
 
 .bar {
-  border-left: 1px dashed #FF5254;
-  border-bottom: 1px dashed #FF5254;
+  border-left: 1px dashed #000;
+  border-bottom: 1px dashed #000;
   margin-bottom: 10px;
   font-size: 0.9em;
-}
-
-.bar h5 {
-  text-align: center;
 }
 
 .bar-info {
@@ -131,12 +140,21 @@ fa {
 }
 
 .bar-name {
-  padding: 5px;
+  padding: 7px 0;
+  margin-bottom: px;
+  text-align: center;
+  background-color: rgba(16, 104, 154, .8);
+  border-bottom: 2px solid #e74c3c;
+  color: #ecf0f1;
+  border-radius: 3px;
+  width: 65%;
+  margin: 0 auto;
 }
 
 .bar-name:hover {
   cursor: pointer;
   cursor: hand;
+  background-color: #e74c3c;
 }
 
 .bar-links {
@@ -147,8 +165,11 @@ fa {
 /*===========*/
 .no-bars-found {
   text-align: center;
-  padding: 80px 0;
-  margin: 10px;
+}
+
+.no-bars-found > span{
+  color: #000;
+
 }
 
 .search-again {
@@ -156,9 +177,19 @@ fa {
   font-size: 70%;
 }
 
+.search-again > span {
+    padding: 10px;
+    background-color: rgba(231, 76, 60, .9);
+    border-radius: 5px;
+    color: #ecf0f1;
+}
+
 .search-again:hover {
   cursor: pointer;
-  color: #FCB653;
+}
+
+.search-again > span:hover {
+  background-color: rgba(231, 76, 60, .8);
 }
 
 .cbp-mc-form {
@@ -270,12 +301,8 @@ fa {
     width: 100%;
     margin-bottom: 20px;
   }
-  .title {
+  .title-h {
     font-size: 1.5em;
-  }
-  .no-bars-found {
-    padding-top: 0;
-    padding-bottom: 0;
   }
 }
 
@@ -290,9 +317,12 @@ fa {
     padding: 150px 20px;
     font-size: 100%;
   }
+  .frown {
+    padding-top: 10%;
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   body p, h5 {
     font-size: 95%;
   }

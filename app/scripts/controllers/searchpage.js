@@ -3,7 +3,6 @@
 angular.module('meanHappyHourApp')
   .controller('SearchPageCtrl', function (mapFuncs, $scope, $http, $rootScope) {
 		$scope.bars = [];
-		$scope.iconClass = 'fa fa-frown-o fa-3x';
 		$scope.showSearch = true;
 
 		$scope.searchAgain = function () {
@@ -32,7 +31,7 @@ angular.module('meanHappyHourApp')
 		$scope.couldntFind = false;
 
 		// bar doc keys
-		$scope.boroughs = [{name: 'Queens'}, {name: 'Brooklyn'}, {name: 'Bronx'}, {name: 'Staten Island'}, {name: 'Manhattan'}];
+		$scope.boroughs = [{name: 'Brooklyn'}, {name: 'The Bronx'}, {name: 'Manhattan'}, {name: 'Queens'}, {name: 'Staten Island'}];
 		$scope.prices = [{price:'$'},{price:'$$'},{price:'$$$'}, {price: '$$$$'}];
 		$scope.sortBys = [{sort: 'Name'}, {sort: 'Rating'}, {sort: 'Price'}];
 		$scope.sortOrders = [{sort: 'Ascending'},{sort: 'Descending'}];
