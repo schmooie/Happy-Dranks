@@ -151,6 +151,16 @@ fa {
   margin: 10px;
 }
 
+.search-again {
+  text-align: center;
+  font-size: 70%;
+}
+
+.search-again:hover {
+  cursor: pointer;
+  color: #FCB653;
+}
+
 .cbp-mc-form {
     position: relative;
 }
@@ -167,27 +177,25 @@ fa {
 
 .cbp-mc-column {
     width: 33%;
-    padding: 10px 30px;
+    padding: 0 30px;
     float: left;
 }
 
 .cbp-mc-form label {
     display: block;
-    padding: 40px 5px 5px 2px;
-    font-size: 1.1em;
+    padding: 15px 5px 5px 2px;
+    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 1px;
-    cursor: pointer;
 }
 
 .cbp-mc-form input,
 .cbp-mc-form textarea,
 .cbp-mc-form select {
-    font-family: 'Lato', Calibri, Arial, sans-serif;
     line-height: 1.5;
-    font-size: 1.4em;
+    font-size: 1em;
     padding: 5px 10px;
-    color: #fff;
+    color: #000;
     display: block;
     width: 100%;
     background: transparent;
@@ -195,11 +203,7 @@ fa {
 
 .cbp-mc-form input,
 .cbp-mc-form textarea {
-    border: 3px solid #fff;
-}
-
-.cbp-mc-form textarea {
-    min-height: 200px;
+    border: 1px solid #000;
 }
 
 .cbp-mc-form input:focus,
@@ -207,7 +211,7 @@ fa {
 .cbp-mc-form label:active + input,
 .cbp-mc-form label:active + textarea {
     outline: none;
-    border: 3px solid #10689a;
+    border: 1px solid #FCB653;
 }
 
 .cbp-mc-form select:focus {
@@ -215,28 +219,28 @@ fa {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #10689a;
+    color: #FCB653;
     font-style: italic;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #10689a;
+    color: #FCB653;
     font-style: italic;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #10689a;
+    color: #FCB653;
     font-style: italic;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #10689a;
+    color: #FCB653;
     font-style: italic;
 }
 
 .cbp-mc-submit-wrap {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 25px;
     clear: both;
 }
 
@@ -249,29 +253,13 @@ fa {
     text-transform: uppercase;
     display: inline-block;
     padding: 15px 30px;
-    font-size: 1.1em;
+    font-size: 1em;
     border-radius: 2px;
     letter-spacing: 1px;
 }
 
 .cbp-mc-form input.cbp-mc-submit:hover {
     background: #1478b1;
-}
-
-@media screen and (max-width: 70em) {
-    .cbp-mc-column {
-        width: 50%;
-    }
-    .cbp-mc-column:nth-child(3) {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 48em) {
-    .cbp-mc-column {
-        width: 100%;
-        padding: 10px;
-    }
 }
 /*===========*/
 /*MEDIA QUERY*/
@@ -280,6 +268,7 @@ fa {
   .angular-google-map-container {
     height: 240px;
     width: 100%;
+    margin-bottom: 20px;
   }
   .title {
     font-size: 1.5em;
@@ -293,6 +282,13 @@ fa {
 @media screen and (max-width: 1100px) {
   .bar {
     min-height: 140px;
+  }
+}
+
+@media screen and (min-width: 995px) {
+  .search-again {
+    padding: 150px 20px;
+    font-size: 100%;
   }
 }
 
@@ -312,6 +308,9 @@ fa {
   .bar {
     min-height: 140px;
   }
+  .search-again {
+    font-size: 60%;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -327,4 +326,20 @@ fa {
   .bar {
     min-height: 162px;
   }
+}
+
+@media screen and (max-width: 70em) {
+    .cbp-mc-column {
+        width: 50%;
+    }
+    .cbp-mc-column:nth-child(3) {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 48em) {
+    .cbp-mc-column {
+        width: 100%;
+        padding: 10px;
+    }
 }

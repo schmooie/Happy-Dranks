@@ -4,6 +4,12 @@ angular.module('meanHappyHourApp')
   .controller('SearchPageCtrl', function (mapFuncs, $scope, $http, $rootScope) {
 		$scope.bars = [];
 		$scope.iconClass = 'fa fa-frown-o fa-3x';
+		$scope.showSearch = true;
+
+		$scope.searchAgain = function () {
+			$scope.showSearch = true;
+			$scope.$apply();
+		};
 
     $scope.map = {
 	    center: {
@@ -27,8 +33,9 @@ angular.module('meanHappyHourApp')
 
 		// bar doc keys
 		$scope.boroughs = [{name: 'Queens'}, {name: 'Brooklyn'}, {name: 'Bronx'}, {name: 'Staten Island'}, {name: 'Manhattan'}];
-		$scope.prices = [{price:'$'},{price:'$$'},{price:'$$$'}];
+		$scope.prices = [{price:'$'},{price:'$$'},{price:'$$$'}, {price: '$$$$'}];
 		$scope.sortBys = [{sort: 'Name'}, {sort: 'Rating'}, {sort: 'Price'}];
+		$scope.sortOrders = [{sort: 'Ascending'},{sort: 'Descending'}];
 
     $scope.search = function () {
     	$scope.notSearched = false;
@@ -52,11 +59,16 @@ angular.module('meanHappyHourApp')
     		query.price = $scope.price.price;
     	}
     	if (!!$scope.sortBy) {
-  			sortBy = 'sort=' + $scope.sortBy.sort.toLowerCase() + '&';
+    		if ($scope.sortOrder.sort === 'Descending') {
+    			sortBy = 'sort=-' + $scope.sortBy.sort.toLowerCase() + '&';
+    		} else {
+    			sortBy = 'sort=' + $scope.sortBy.sort.toLowerCase() + '&';
+    		}
     	}
 
     	$http.get('/api/v1/Bars?' + sortBy + 'query=' + JSON.stringify(query))
     	.success(function(bars){
+    		$scope.showSearch = false;
     		if (bars.length > 0) {
     			$scope.bars = mapFuncs.makeMarkers(bars);
     			$scope.foundBars = true;
