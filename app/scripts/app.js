@@ -9,7 +9,10 @@ angular.module('meanHappyHourApp', [
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
+    	.when('/', {
+    		templateUrl: 'partials/home'
+    	})
+      .when('/nearby', {
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
