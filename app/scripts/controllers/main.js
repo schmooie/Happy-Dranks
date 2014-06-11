@@ -47,12 +47,12 @@ angular.module('meanHappyHourApp')
 			});
 		};
 
-		var onSuccess = function (position) {
-			$rootScope.myLocation = {
-				latitude: position.coords.latitude,
-				longitude: position.coords.longitude
-			};
-		};
+		// var onSuccess = function (position) {
+		// 	$rootScope.myLocation = {
+		// 		latitude: position.coords.latitude,
+		// 		longitude: position.coords.longitude
+		// 	};
+		// };
 
-		navigator.geolocation.getCurrentPosition(onSuccess, function(error){ console.log(error);});
+		// navigator.geolocation.getCurrentPosition(onSuccess, function(error){ console.log(error);});
 	});
