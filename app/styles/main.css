@@ -7,12 +7,24 @@ body {
   background-color: #FCFDE9;
 }
 
+p {
+  margin: 0;
+}
+
 .container {
   width: 100%;
 }
 
 a:hover {
   text-decoration: none;
+}
+
+.bar {
+  font-size: 13px;
+  border-left: 1px dashed #000;
+  border-bottom: 1px dashed #000;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .header, .footer {
@@ -109,19 +121,21 @@ a:hover {
   padding-left: 5px;
 }
 
-.bar {
-  border-left: 1px dashed #000;
-  border-bottom: 1px dashed #000;
-  margin-bottom: 10px;
-  font-size: 0.9em;
+.bar .fa {
+  font-size: 150%;
+}
+
+.bar-icons {
+  padding-top: 10px;
 }
 
 .bar-info {
-  padding-right: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
-.row {
-  margin: 0 0 5px 5px;
+.bar-info > p {
+  margin-bottom: 2px;
 }
 
 .bar-name {
@@ -131,7 +145,7 @@ a:hover {
   border-bottom: 2px solid #e74c3c;
   color: #ecf0f1;
   border-radius: 3px;
-  width: 60%;
+  max-width: 80%;
   margin: 0 auto;
 }
 
@@ -180,7 +194,6 @@ a:hover {
     position: relative;
 }
 
-/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
 .cbp-mc-form:before,
 .cbp-mc-form:after {
     content: " "; display: table;
@@ -226,7 +239,7 @@ a:hover {
 .cbp-mc-form label:active + input,
 .cbp-mc-form label:active + textarea {
     outline: none;
-    border: 1px solid #FCB653;
+    border: 1px solid #e74c3c;
 }
 
 .cbp-mc-form select:focus {
@@ -234,22 +247,22 @@ a:hover {
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
-    color: #FCB653;
+    color: #e74c3c;
     font-style: italic;
 }
 
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #FCB653;
+    color: #e74c3c;
     font-style: italic;
 }
 
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-    color: #FCB653;
+    color: #e74c3c;
     font-style: italic;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10+ */
-    color: #FCB653;
+    color: #e74c3c;
     font-style: italic;
 }
 
@@ -279,20 +292,18 @@ a:hover {
 /*===========*/
 /*MEDIA QUERY*/
 /*===========*/
-@media screen and (min-width: 280px) and (max-width: 600px) {
-  .angular-google-map-container {
-    height: 240px;
-    width: 100%;
-    margin-bottom: 20px;
+@media screen and (min-width: 1200px) {
+  .main-bar {
+    min-height: 120px;
   }
-  .title-h {
-    font-size: 1.5em;
+  .side-bar {
+    min-height: 135px;
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .bar {
-
+@media screen and (max-width: 1199px) and (min-width: 990px) {
+  .side-bar {
+    min-height: 170px;
   }
 }
 
@@ -310,26 +321,45 @@ a:hover {
   body p, h5 {
     font-size: 95%;
   }
-  .bar {
+}
 
+@media screen and (max-width: 600px) {
+  .angular-google-map-container {
+    height: 240px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
   body p, h5 {
     font-size: 90%;
   }
-  .bar {
-
+  .side-bar {
+    min-height: 120px;
+  }
+  .main-bar {
+    min-height: 110px;
+  }
+  .angular-google-map-container {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .title-h {
+    font-size: 1.5em;
   }
   .search-again {
     font-size: 60%;
   }
 }
 
-@media screen and (max-width: 400px) {
-  .bar {
+@media screen and (max-width: 500px) {
+  .side-bar, .main-bar {
+    min-height: 126px;
+  }
+}
 
+@media screen and (max-width: 450px) {
+  .side-bar, .main-bar {
+    min-height: 130px;
   }
 }
 

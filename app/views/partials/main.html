@@ -23,26 +23,22 @@
         <p>Let's turn that frown upside down.</p>
         <p>Click on one of us to get happy hours near you.</p>
       </div>
-      <div ng-show="nearbyBars" class="bar col-md-4 col-sm-6" ng-repeat="bar in bars.slice(-numNearby)">
-        <div class="row">
-          <div class="bar-name col-xs-9" ng-click="bar.marker.onClicked(bar)">
-            <strong>{{bar.name}}</strong>
-          </div>
-          <div class="col-xs-3">
-            <p>
-              <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare fa-2x"></a>
-            </p>
-            <p>
-              <a ng-show="{{!!bar.url}}" ng-href="{{bar.url}}" class="fa fa-link fa-2x"></a>
-            </p>
-          </div>
+      <div ng-show="nearbyBars" class="bar side-bar col-sm-4 col-xs-6" ng-repeat="bar in bars.slice(-numNearby)">
+        <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
+          <strong>{{bar.name}}</strong>
         </div>
-        <div class="col-xs-6">
+        <div class="bar-icons">
+          <p class="bar-links">
+            <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
+            <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>
+          </p>
+        </div>
+        <div class="col-xs-6 bar-info">
           <p>
             Price: {{bar.price}}
           </p>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 bar-info">
           <p>
             Rating: {{bar.rating}}
           </p>
@@ -54,21 +50,19 @@
 
 <div class="col-md-12">
   <h2 class="title-h"><span class="title">SOME HAPPY HOURS TO START</span></h2>
-  <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
+  <div class="bar main-bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
     <div ng-click="bar.marker.onClicked(bar)">
       <div class="bar-name">
         <strong>{{bar.name}}</strong>
       </div>
-      <div>
+      <div class="bar-icons">
         <p class="bar-links">
           <a ng-href="{{bar.fs_url}}" class="icon fa fa-foursquare"></a>
           <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="icon fa fa-link"></a>
         </p>
       </div>
       <div class="col-xs-6 bar-info">
-        <p>
-          Price: {{bar.price}}
-        </p>
+        <p>Price: {{bar.price}}</p>
       </div>
       <div class="col-xs-6 bar-info">
         <p>Rating: {{bar.rating}}</p>
