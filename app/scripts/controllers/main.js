@@ -48,4 +48,15 @@ angular.module('meanHappyHourApp')
 				}, 400);
 			});
 		};
+
+		var onSuccess = function (position) {
+			$rootScope.myLocation = {
+				latitude: position.coords.latitude,
+				longitude: position.coords.longitude
+			};
+		};
+
+		if (!!$rootScope.myLocation) {
+			navigator.geolocation.getCurrentPosition(onSuccess, function(error){ console.log(error);});
+		}
 	});

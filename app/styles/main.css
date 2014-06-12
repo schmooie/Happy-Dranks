@@ -115,7 +115,7 @@ a:hover {
 /*==========*/
 /*BARS PANEL*/
 /*==========*/
-.title-h, .title-n {
+.title-h {
   text-align: center;
   margin-bottom: 20px;
   color: #e74c3c;
@@ -483,6 +483,26 @@ a:hover {
 .cbp-ig-grid li > a:hover .cbp-ig-title:before {
   background: #fff;
   margin-top: 80px;
+}
+/*==========*/
+/*ABOUT PAGE*/
+/*==========*/
+.about > .title-h {
+  text-align: left;
+}
+.about > .title-h > .title {
+  font-size: 80%;
+}
+.about > ul {
+  list-style: none;
+  padding: 2px;
+}
+.about > ul > li::first-letter {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.mean {
+  font-size: 1.5em;
 }
 /*===========*/
 /*MEDIA QUERY*/
