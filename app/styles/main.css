@@ -88,6 +88,14 @@ a:hover {
   padding: 5px;
   border: 5px dotted #FFF;
 }
+
+.info-window > a {
+  color: #FFF;
+}
+
+.info-window > a:hover {
+  text-decoration: underline;
+}
 /*==========*/
 /*SIDE PANEL*/
 /*==========*/
