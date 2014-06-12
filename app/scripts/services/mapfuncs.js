@@ -100,7 +100,7 @@ angular.module('meanHappyHourApp')
 		    }
 			],
 
-			makeMarkers: function (arr, iconUrl) {
+			makeMarkers: function (arr, scopeApply) {
 				var bars = [];
 			  for (var i = 0; i < arr.length; i++) {
 		    	var bar = arr[i];
@@ -114,14 +114,13 @@ angular.module('meanHappyHourApp')
 
 		    	marker.closeClick = function () {
 		    		marker.showWindow = false;
-		    		$scope.$apply();
 		    	};
 		    	marker.onClicked = function (marker) {
-		    		onMarkerClicked(marker);
 		    		var old = $location.hash();
+		    		onMarkerClicked(marker);
 		    		$location.hash('gMap');
 		    		$anchorScroll();
-		    		$location.hash(old)
+		    		$location.hash(old);
 		    	};
 		    	marker.windowOptions = {
 		    		pixelOffset: new google.maps.Size(0,5),

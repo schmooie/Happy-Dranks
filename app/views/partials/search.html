@@ -51,9 +51,9 @@
 <div class="col-xs-12" ng-show="foundBars">
   <h2 class="title-h"><span class="title">YOUR HAPPY HOURS</span></h2>
   <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
-    <h5 class="bar-name">
-      <strong ng-click="bar.marker.onClicked(bar)">{{bar.name}}</strong>
-    </h5>
+    <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
+      <strong>{{bar.name}}</strong>
+    </div>
     <p class="bar-links">
       <a ng-href="{{bar.fs_url}}" class="fa fa-foursquare"></a>
       <a ng-href="{{bar.url}}" ng-show="{{!!bar.url}}" class="fa fa-link"></a>

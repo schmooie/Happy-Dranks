@@ -19,8 +19,10 @@ angular.module('meanHappyHourApp')
 	    }
 		};
 
-    $http.get('/api/v1/Bars?happyHour=Yes&limit=24').success(function(bars) {
-    		$scope.bars = mapFuncs.makeMarkers(bars); });
+    $http.get('/api/v1/Bars?happyHour=Yes&limit=24')
+    .success(function(bars) {
+  		$scope.bars = mapFuncs.makeMarkers(bars, $scope.apply);
+  	});
 
 		$scope.findNear = function () {
 			$scope.map.center = $rootScope.myLocation;
@@ -46,13 +48,4 @@ angular.module('meanHappyHourApp')
 				}, 400);
 			});
 		};
-
-		// var onSuccess = function (position) {
-		// 	$rootScope.myLocation = {
-		// 		latitude: position.coords.latitude,
-		// 		longitude: position.coords.longitude
-		// 	};
-		// };
-
-		// navigator.geolocation.getCurrentPosition(onSuccess, function(error){ console.log(error);});
 	});
