@@ -61,8 +61,7 @@ angular.module('meanHappyHourApp')
     		if ($scope.sortOrder.sort === 'Descending') {
     			sortBy = 'sort=-' + $scope.sortBy.sort.toLowerCase() + '&';
     		} else {
-    			sortBy = 'sort=' + $scope.sortBy.sort.toLowerCase() + '&';
-    		}
+    			sortBy = 'sort=' + $scope.sortBy.sort.toLowerCase() + '&';    		}
     	}
 
     	$http.get('/api/v1/Bars?' + sortBy + 'query=' + JSON.stringify(query))
