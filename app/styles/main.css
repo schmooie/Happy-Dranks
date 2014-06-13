@@ -1,10 +1,14 @@
 /*=========================*/
 /*GENERAL + FOOTER + HEADER*/
 /*=========================*/
-body {
+* {
+  margin: 0;
+}
+html, body {
   font-family: 'Lato', 'sans-serif';
   color: #000;
   background-color: #FCFDE9;
+  height: 100%;
 }
 
 p {
@@ -28,9 +32,15 @@ a:hover {
 }
 
 .header, .footer {
+  display: block;
   background-color: #e74c3c;
   padding: 1px 10px;
   color: #ecf0f1;
+}
+
+.footer {
+  margin-top: 10px;
+  width: 100%;
 }
 
 .header {
@@ -72,6 +82,7 @@ a:hover {
 
 .footer {
   text-align: center;
+  height: 30px;
 }
 /*===========*/
 /*GOOGLE MAPS*/
@@ -487,8 +498,21 @@ a:hover {
 /*==========*/
 /*ABOUT PAGE*/
 /*==========*/
+.about {
+  font-size: 1.1em;
+}
+.about a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+}
+.about a:hover {
+  background-color: #e74c3c;
+  padding: 1px;
+  color: #FCFDE9;
+}
 .about > .title-h {
-  text-align: left;
+  text-align: center;
 }
 .about > .title-h > .title {
   font-size: 80%;
@@ -503,6 +527,10 @@ a:hover {
 }
 .mean {
   font-size: 1.5em;
+}
+.social-icons a:hover{
+  color: rgba(16, 104, 154, .8);
+  background-color: #FCFDE9;
 }
 /*===========*/
 /*MEDIA QUERY*/

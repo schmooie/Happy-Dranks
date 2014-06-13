@@ -8,6 +8,5 @@ angular.module('meanHappyHourApp')
 				longitude: position.coords.longitude
 			};
 		};
-
 		navigator.geolocation.getCurrentPosition(onSuccess, function(error){ console.log(error);});
   });
