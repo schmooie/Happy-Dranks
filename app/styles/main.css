@@ -528,6 +528,9 @@ a:hover {
 .mean {
   font-size: 1.5em;
 }
+.contact {
+  text-align: center;
+}
 .social-icons a:hover{
   color: rgba(16, 104, 154, .8);
   background-color: #FCFDE9;
