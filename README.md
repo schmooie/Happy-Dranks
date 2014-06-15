@@ -36,7 +36,7 @@ The searches use logical queries for rating and names.
 ###Mobile
 ![Mobile](/screenshots/responsive.jpg)
 
-The app responsive.
+The app is responsive.
 
 Improvements
 =========
