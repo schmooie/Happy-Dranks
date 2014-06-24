@@ -23,6 +23,7 @@
         <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span> <span ng-class="iconClass" ng-click="findNear()"></span>
         <p>Let's turn that frown upside down.</p>
         <p>Click on one of us to get happy hours near you.</p>
+        <p style="font-size: .75em;">(Or try saying: "Drinks please.")</p>
       </div>
       <div ng-show="nearbyBars" class="bar side-bar col-sm-4 col-xs-6" ng-repeat="bar in bars.slice(-numNearby)">
         <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
