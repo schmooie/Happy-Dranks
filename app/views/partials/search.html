@@ -1,25 +1,30 @@
 <div class="row">
-  <div class="col-md-7"> <!-- maps -->
-    <google-map id="gMap"center="map.center" zoom="map.zoom" draggable="true" options="map.options">
-      <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" icon="'icon'"doRebuildAll="'true'">
+  <div class="col-md-7">
+    <!-- maps -->
+    <google-map id="gMap" center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+      <markers models="bars" idkey="'_id'" coords="'self'" click="'onClicked'" icon="'icon'" doRebuildAll="'true'">
         <windows show="'showWindow'" closeclick="'closeClick'" options="'windowOptions'">
           <div class="info-window">
             <p ng-non-bindable>
-              <strong>{{name}}</strong></p>
-            <p ng-non-bindable>Price: {{price}}  |  Rating: {{rating}}</p>
+              <strong>{{name}}</strong>
+            </p>
+            <p ng-non-bindable>Price: {{price}} | Rating: {{rating}}</p>
             <a ng-non-bindable href="https://www.google.com/maps/place/{{latitude}}, {{longitude}}">Directions</a>
           </div>
         </windows>
       </markers>
     </google-map>
-  </div> <!-- end of maps -->
+  </div>
+  <!-- end of maps -->
 
   <div class="col-md-5 search-again" ng-hide="showSearch">
-    <span class="fa fa-search fa-3x" ng-click="searchAgain()"> SEARCH AGAIN?</span>
+    <span class="fa fa-search fa-3x" ng-click="searchAgain()">SEARCH AGAIN?</span>
   </div>
 
   <div class="col-md-5" ng-show="showSearch">
-    <h3 class="title-h"><span class="title">SEARCH FOR HAPPY HOURS</span></h3>
+    <h3 class="title-h">
+      <span class="title">SEARCH FOR HAPPY HOURS</span>
+    </h3>
     <form class="cbp-mc-form" ng-submit="search()">
       <div class="cbp-mc-column">
         <label for="name">Name</label>
@@ -44,14 +49,18 @@
         <select ng-model="sortOrder" ng-options="sortOrders.sort for sortOrders in sortOrders"></select>
       </div>
 
-      <div class="cbp-mc-submit-wrap"><input class="cbp-mc-submit" type="submit" value="Search" /></div>
+      <div class="cbp-mc-submit-wrap">
+        <input class="cbp-mc-submit" type="submit" value="Search" />
+      </div>
     </form>
   </div>
 </div>
 
 <div class="col-xs-12" ng-show="foundBars">
-  <h2 class="title-h"><span class="title">YOUR HAPPY HOURS</span></h2>
-  <div class="bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
+  <h2 class="title-h">
+    <span class="title">YOUR HAPPY HOURS</span>
+  </h2>
+  <div class="main-bar bar col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="bar in bars">
     <div class="bar-name" ng-click="bar.marker.onClicked(bar)">
       <strong>{{bar.name}}</strong>
     </div>
@@ -73,7 +82,7 @@
 
 <div class="col-xs-12 no-bars-found" ng-hide="foundBars">
   <span class="fa fa-frown-o">
-    <span ng-show="notSearched"> Maybe you should try searching for some bars...</span>
-    <span ng-show="couldntFind"> Sorry, we couldn't find what you were looking for.</span>
+    <span ng-show="notSearched">Maybe you should try searching for some bars...</span>
+    <span ng-show="couldntFind">Sorry, we couldn't find what you were looking for.</span>
   </span>
 </div>
