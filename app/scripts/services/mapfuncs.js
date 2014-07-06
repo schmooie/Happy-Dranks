@@ -100,7 +100,7 @@ angular.module('meanHappyHourApp')
 		    }
 			],
 
-			makeMarkers: function (arr, scopeApply) {
+			makeMarkers: function (arr) {
 				var bars = [];
 			  for (var i = 0; i < arr.length; i++) {
 		    	var bar = arr[i];

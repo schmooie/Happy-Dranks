@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('meanHappyHourApp')
-  .controller('MainCtrl', function(mapFuncs, $scope, $http, $rootScope) {
+  .controller('MainCtrl', function(mapFuncs, $scope, $http, $rootScope, $timeout) {
     $scope.bars = [];
     $scope.iconClass = 'fa fa-frown-o fa-5x';
     $scope.map = {
@@ -21,11 +21,11 @@ angular.module('meanHappyHourApp')
 
     $http.get('/api/v1/Bars?happyHour=Yes&limit=24')
       .success(function(bars) {
-        $scope.bars = mapFuncs.makeMarkers(bars, $scope.apply);
+        $scope.bars = mapFuncs.makeMarkers(bars);
       });
 
     $scope.findNear = function() {
-      $scope.map.center = $rootScope.myLocation;
+      $scope.map.center = $scope.myLocation;
       $scope.iconClass = 'fa fa-frown-o fa-5x fa-spin';
       var query = {
         happyHour: 'Yes',
@@ -39,18 +39,17 @@ angular.module('meanHappyHourApp')
         .success(function(bars) {
           $scope.numNearby = bars.length < 6 ? bars.length : 6;
           $scope.bars = $scope.bars.concat(mapFuncs.makeMarkers(bars.slice(0, $scope.numNearby)));
-          setTimeout(function() {
+          $timeout(function() {
             $scope.iconClass = 'fa fa-smile-o fa-5x';
-            setTimeout(function() {
+            $timeout(function() {
               $scope.nearbyBars = true;
-              $scope.$apply();
             }, 800);
           }, 400);
         });
     };
 
     var onSuccess = function(position) {
-      $rootScope.myLocation = {
+      $scope.myLocation = {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude
       };
@@ -66,7 +65,7 @@ angular.module('meanHappyHourApp')
       annyang.start();
     }
 
-    if ( !! $rootScope.myLocation) {
+    if ( !! $scope.myLocation) {
       navigator.geolocation.getCurrentPosition(onSuccess, function(error) {
         console.log(error);
       });
